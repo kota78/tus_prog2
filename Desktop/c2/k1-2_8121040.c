@@ -1,27 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#define NMAX 100000000
 
 int main(void)
 {
     double x, y, y2, s, d;
-    int i, j, n, count;
-    for (i = 1; i < 8; i++){
-        count = 0;
-        n=pow(10.0, (double)i);
-        printf("%d,", n);
-        for (j = 0; j < n; j++)
+    int i, j=10, count=0;
+        for (i = 0; i < NMAX; i++)
             {
             x = (double)rand() / RAND_MAX;
             y = (double)rand() / RAND_MAX;
-            y2 = pow(y, 2.0);
-            if (y2 <= x)
+            if (y*y <= x)
             {
                 count++;
             }
+            if (i%j == 0 && i!=0) {
+                s = (double)count / j;
+                printf("%d, %f,\n",j, s);
+                j=j*10;
+            }
         }
-        s = (double)count / n;
-        printf("%f\n,", s);
-    }
     return 0;
 }

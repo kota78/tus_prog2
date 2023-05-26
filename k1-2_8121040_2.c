@@ -15,7 +15,7 @@ int main(void)
             {
                 count++;
             }
-            if (i%j == 0) {
+            if (i%j == 0 && i!=0) {
                 s = (double)count / j;
                 printf("%d, %f,\n",j, s);
                 j=j*10;
